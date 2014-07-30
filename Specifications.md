@@ -10,20 +10,19 @@ The backend will consist of several parts.
 	
 
 1. Page Serving
-This will contain several views which encompass the entirety of:
-*Facebook/Google login
-*Class entering {import from G Calendar, iCal, or form fill}
-*A listed view of what classes you have followed by FB friends with that class, or FB friends you have with classes they share with you.
+  * Facebook/Google login
+  * Class entering {import from G Calendar, iCal, or form fill}
+  * A listed view of what classes you have followed by FB friends with that class, or FB friends you have with classes they share with you.
 
 2. Server Stuff
-* Login based on Facebook OAuth
-* Information available using a REST API
-* LINQ-esque queries across the Database to find matching University, Class, and Section.
-* Module which imports a class list (either form-filled or from Google Calendar) and decides unique classes based on this, saves user and classes to DB.
+  * Login based on Facebook OAuth
+  * Information available using a REST API
+  * LINQ-esque queries across the Database to find matching University, Class, and Section.
+  * Module which imports a class list (either form-filled or from Google Calendar) and decides unique classes based on this, saves user and classes to DB.
 
 
 
 3. Database
-*Contains a Student entity made of: An ID field, a University field, and a collection of classes this user is in, and third-party access information (Facebook, Google).
-*Contains a Class entity, which has an ID field, a University field, a Class Name, and a Class Section #.
-*Contains a University entity, which has a collection of classes and a collection of Students.
+  * Contains a Student entity made of: An ID field, a University field, and a collection of classes this user is in, and third-party access information (Facebook, Google).
+  * Contains a Class entity, which has an ID field, a University field, a Class Name, and a Class Section #.
+  * Contains a University entity, which has a collection of classes and a collection of Students.
