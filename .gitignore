@@ -11,8 +11,8 @@ web.debug.config
 
 # VS PTVS Template Folders
 
-webapp/CWF_webapp/app
-webapp/CWF_webapp/env
+# webapp/CWF_webapp/app/
+webapp/CWF_webapp/env/
 
 
 ## Ignore Visual Studio temporary files, build results, and
