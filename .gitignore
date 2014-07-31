@@ -171,6 +171,3 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
-
-#Custom Folders
-webapp/CWF_webapp/CWF_webapp
