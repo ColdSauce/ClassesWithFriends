@@ -4,4 +4,3 @@ The webapp is a backend REST API written with Python, Django, and was put togeth
 
   * Python 3.4
   * Django 1.6.5
-  
