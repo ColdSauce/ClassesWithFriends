@@ -3,11 +3,15 @@ package dwai.classeswithfriends;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +24,7 @@ import android.widget.TextView;
 import com.facebook.*;
 import com.facebook.model.*;
 import com.facebook.Session;
+import com.facebook.widget.LoginButton;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -34,6 +39,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -44,16 +51,18 @@ public class LaunchActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_launch);
+
         ActionBar actionBar = getActionBar();
         actionBar.setIcon(R.drawable.student);
-        setContentView(R.layout.activity_launch);
 
         final Typeface mFont = Typeface.createFromAsset(getAssets(),
                 "fonts/proxima.ttf");
         final ViewGroup mContainer = (ViewGroup) findViewById(
                 android.R.id.content).getRootView();
         LaunchActivity.setAppFont(mContainer, mFont, true);
-        // start Facebook Login
+
+
         Session.openActiveSession(this, true, new Session.StatusCallback() {
 
             // callback when session changes state
@@ -61,14 +70,14 @@ public class LaunchActivity extends Activity {
             public void call(Session session, SessionState state, Exception exception) {
                 if (session.isOpened()) {
 
-                    // make request to the /me API
                     Request.newMeRequest(session, new Request.GraphUserCallback() {
 
                         // callback after Graph API response with user object
                         @Override
                         public void onCompleted(GraphUser user, Response response) {
                             if (user != null) {
-                               // new RequestTask().execute(user.getInnerJSONObject().toString());
+                                Intent i = new Intent();
+                                new RequestTask().execute(user.getInnerJSONObject().toString());
 
                             }
                         }
@@ -86,11 +95,6 @@ public class LaunchActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
     }
-
-    private void createUser(String json){
-
-    }
-
 
 
     private class RequestTask extends AsyncTask<String,Void,String>{
@@ -128,9 +132,10 @@ public class LaunchActivity extends Activity {
 
         @Override
         protected void onPostExecute(String data){
-
+            startActivity(ScheduleActivity.generateIntent(getApplicationContext(),data));
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -141,10 +146,7 @@ public class LaunchActivity extends Activity {
     }
 
 
-    /**
-     * Recursively sets a {@link Typeface} to all
-     * {@link TextView}s in a {@link ViewGroup}.
-     */
+
     public static final void setAppFont(ViewGroup mContainer, Typeface mFont, boolean reflect)
     {
         if (mContainer == null || mFont == null) return;

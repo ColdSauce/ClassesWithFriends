@@ -14,8 +14,9 @@
         <EditText
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint = "give yourself a username"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:singleLine="true"
+            android:hint = "give yourself a username"/>
 
         <com.facebook.widget.LoginButton
             android:id = "@+id/loginFacebook"

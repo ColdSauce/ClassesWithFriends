@@ -796,7 +796,7 @@ public class LoginButton extends Button {
         listenerCallback = clickListener;
     }
 
-    private class LoginClickListener implements OnClickListener {
+    public class LoginClickListener implements OnClickListener {
 
         @Override
         public void onClick(View v) {
