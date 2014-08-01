@@ -210,3 +210,4 @@ build/
 
 *.iml
 mobileapp/facebook/
+mobileapp/app/src/main/res/values/strings.xml
