@@ -1,4 +1,4 @@
-package dwai.classeswithfriends;
+package dwai.classeswithfriends.schedulepackage;
 
 import android.content.Context;
 import android.util.AttributeSet;

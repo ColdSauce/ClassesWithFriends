@@ -3,48 +3,32 @@ package dwai.classeswithfriends;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.*;
 import com.facebook.model.*;
 import com.facebook.Session;
-import com.facebook.widget.LoginButton;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.HttpParams;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+
+import dwai.classeswithfriends.schedulepackage.ScheduleActivity;
 
 public class LaunchActivity extends Activity {
 
@@ -77,7 +61,7 @@ public class LaunchActivity extends Activity {
                         public void onCompleted(GraphUser user, Response response) {
                             if (user != null) {
                                 Intent i = new Intent();
-                                new RequestTask().execute(user.getInnerJSONObject().toString());
+                               // new RequestTask().execute(user.getInnerJSONObject().toString());
 
                             }
                         }
@@ -132,7 +116,7 @@ public class LaunchActivity extends Activity {
 
         @Override
         protected void onPostExecute(String data){
-            startActivity(ScheduleActivity.generateIntent(getApplicationContext(),data));
+            startActivity(ScheduleActivity.generateIntent(getApplicationContext(), data));
         }
     }
 

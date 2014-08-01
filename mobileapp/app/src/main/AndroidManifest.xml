@@ -23,7 +23,7 @@
             android:value="@string/app_id" />
 
         <activity
-            android:name=".ScheduleActivity"
+            android:name=".schedulepackage.ScheduleActivity"
             android:label="@string/title_activity_schedule" >
         </activity>
     </application>

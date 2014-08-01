@@ -1,5 +1,7 @@
 package dwai.classeswithfriends;
 
+import dwai.classeswithfriends.schedulepackage.Schedule;
+
 /**
  * Created by Stefan on 7/31/2014.
  */

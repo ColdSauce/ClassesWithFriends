@@ -1,7 +1,9 @@
-package dwai.classeswithfriends;
+package dwai.classeswithfriends.schedulepackage;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import dwai.classeswithfriends.schedulepackage.ScheduleItem;
 
 /**
  * Created by Stefan on 7/31/2014.
