@@ -8,14 +8,15 @@ import android.widget.LinearLayout;
  * Created by Stefan on 7/31/2014.
  */
 public class ScheduleItem extends LinearLayout {
-    public ScheduleItem(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context);
+
+    private String jsonData = "";
+
+    public ScheduleItem(Context context,String jsonData) {
+        super(context);
+        this.jsonData = jsonData;
     }
 
-    private void init(Context context){
-        
+    public String getJsonData() {
+        return jsonData;
     }
-
-
 }
