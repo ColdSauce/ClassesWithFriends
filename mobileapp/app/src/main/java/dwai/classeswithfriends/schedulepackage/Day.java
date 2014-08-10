@@ -10,4 +10,16 @@ public class Day {
     private DayType dayType;
     List<ScheduleItem> scheduleItems = new ArrayList<ScheduleItem>();
 
+    public Day(DayType dayType, List<ScheduleItem> scheduleItems) {
+        this.dayType = dayType;
+        this.scheduleItems = scheduleItems;
+    }
+
+    public DayType getDayType() {
+        return dayType;
+    }
+
+    public List<ScheduleItem> getScheduleItems() {
+        return scheduleItems;
+    }
 }

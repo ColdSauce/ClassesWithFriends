@@ -26,6 +26,10 @@
             android:name=".schedulepackage.ScheduleActivity"
             android:label="@string/title_activity_schedule" >
         </activity>
+        <activity
+            android:name=".schedulepackage.CreateClassActivity"
+            android:label="@string/title_activity_create_class" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

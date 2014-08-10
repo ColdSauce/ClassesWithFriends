@@ -18,4 +18,5 @@ public class Schedule {
     public List<ScheduleItem> getScheduleItems() {
         return scheduleItems;
     }
+
 }

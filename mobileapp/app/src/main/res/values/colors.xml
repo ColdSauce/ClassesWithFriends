@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="strawberry">#E08E79</color>
-    <color name = "banquette">#774F38</color>
-    <color name = "cream">#F1D4AF</color>
-    <color name = "powderpuff">#ECE5CE</color>
-    <color name = "charlotte">#C5E0DC</color>
+    <color name="darkblue">#00A8C6</color>
+    <color name = "lightblue">#40C0CB</color>
+    <color name = "lightgreen">#AEE239</color>
+    <color name = "white">#F9F2E7</color>
+    <color name = "darkgreen">#8FBE00</color>
 
 
 

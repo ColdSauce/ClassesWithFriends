@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 
+import dwai.classeswithfriends.schedulepackage.CreateClassActivity;
 import dwai.classeswithfriends.schedulepackage.ScheduleActivity;
 
 public class LaunchActivity extends Activity {
@@ -61,7 +63,7 @@ public class LaunchActivity extends Activity {
                         public void onCompleted(GraphUser user, Response response) {
                             if (user != null) {
                                 Intent i = new Intent();
-                               // new RequestTask().execute(user.getInnerJSONObject().toString());
+                                new RequestTask().execute(user.getInnerJSONObject().toString());
 
                             }
                         }
@@ -79,12 +81,14 @@ public class LaunchActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
     }
-
+    public void pressedPlus(MenuItem v){
+        this.startActivity(new Intent(LaunchActivity.this, CreateClassActivity.class));
+    }
 
     private class RequestTask extends AsyncTask<String,Void,String>{
         @Override
         protected String doInBackground(String...v) {
-            String getURL = "something";
+            String getURL = "";
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(getURL);
             HttpEntity entity = null;
@@ -93,10 +97,14 @@ public class LaunchActivity extends Activity {
                 httppost.setEntity(new StringEntity(v[0]));
                 HttpResponse resp = httpclient.execute(httppost);
                 entity = resp.getEntity();
+
             }
             catch(Exception e){
                 //TODO: gracefully handle error
                 e.printStackTrace();
+            }
+            if(entity == null){
+                return "";
             }
 
             String returnedString = "";

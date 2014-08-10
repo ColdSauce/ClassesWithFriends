@@ -1,0 +1,98 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dwai.classeswithfriends.schedulepackage.CreateClassActivity"
+    android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:id = "@+id/mainLayout"
+        >
+            <EditText
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint = "Class name"
+                android:singleLine="true"
+                android:gravity = "center"
+            />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                >
+
+                    <Button
+                        android:id = "@+id/daysButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:text = "Days"
+                        android:background="@android:color/transparent"
+                        />
+                    <View
+                    android:layout_width="1dip"
+                    android:layout_height="match_parent"
+                    android:background="#999999"
+                    />
+                    <Button
+                        android:id = "@+id/startButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:text = "Start"
+                        android:background="@android:color/transparent"
+                        />
+                    <View
+                    android:layout_width="1dip"
+                    android:layout_height="match_parent"
+                    android:background="#999999"
+                    />
+                    <Button
+                        android:id = "@+id/endButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:text = "End"
+                        android:background="@android:color/transparent"
+                        />
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:onClick="clickedPlusButton"
+                        android:background = "@drawable/additem"
+                        />
+               </LinearLayout>
+
+                 <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:id = "@+id/timeClasses"
+                        >
+
+
+                 </LinearLayout>
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text = "Create class"
+            android:layout_marginBottom="20dp"
+            android:onClick = "pressedCreateClass"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:background="@drawable/greenbutton"
+            />
+
+   </LinearLayout>
+
+</ScrollView>
